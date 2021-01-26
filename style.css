@@ -1,12 +1,12 @@
 .header {
   text-align: center;
-  font-family: Arial, Helvetica;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .body
 {
   background-color: #fff0f5;
   padding: 20px 20px 20px 20px;
-  font-family: Arial, Helvetica;
+  font-family: Arial, Helvetica, sans-serif;
   width: 380px;
   margin: 20px auto;
   border: 3px solid #f170b1;
