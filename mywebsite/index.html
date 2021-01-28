@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <div class="nav" >
+    <ul>
+      <a class= "menu">Menu : </a>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="FAQ/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Images</title>
+    <link rel='stylesheet' href='style.css'/>
+    <style>
+    /* écran plus petit: on passe le menu en horizontal */
+    @media (min-width: 50em) {
+    .nav { width: 100%; }
+    .nav li { display: inline-block; }
+    }
+    /* écran encore plus petit: on cache le menu */
+    @media (max-width: 50em) {
+    .nav { width:150px; }
+    .nav li { display: inline-block; }
+    }
+    </style>
+  </head>
+  <body>
+    <h1>How to download an image?  </h1>
+
+    <h2>Here 2 examples of image</h2>
+
+    <p>First one</p>
+
+    <img src='images/image_1.jpg'/>
+
+    <p>Second One</p>
+
+    <img src='images/image_2.jpg'/>
+
+    <p>Things to do :</p>
+
+    <ul>
+      <li>Go to the internet</li>
+      <li>Click on the image </li>
+      <li>Copy the link of the image</li>
+      <li>Download image using "wget" on the shell </li>
+    </ul>
+
+    <a> Author : Gatinois Marion</a>
+
+  </body>
+</html>

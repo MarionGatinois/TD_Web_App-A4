@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <div class="nav" >
+    <ul>
+      <a class= "menu">Menu : </a>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>FAQ</title>
+    <link rel='stylesheet' href='../style.css'/>
+    <style>
+    /* écran plus petit: on passe le menu en horizontal */
+    @media (min-width: 50em) {
+    .nav { width: 100%; }
+    .nav li { display: inline-block; }
+    }
+    /* écran encore plus petit: on cache le menu */
+    @media (max-width: 50em) {
+    .nav { width: 150px; }
+    .nav li { display: inline-block; }
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1>FAQ</h1>
+
+    <h2>Some Questions</h2>
+
+    <p>Other way to download ? </p>
+
+    <ul>
+      <li>download directly on your laptop</li>
+      <li>copy and place it into your directory</li>
+    </ul>
+
+    <p>Do not work on shell on windows? </p>
+
+    <ul>
+      <li>download ubuntu</li>
+      <li>use the shell of ubuntu</li>
+    </ul>
+
+    <a> Author : Gatinois Marion</a>
+
+
+  </body>
+</html>
