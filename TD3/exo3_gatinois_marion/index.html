@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Responsive</title>
+    <link rel='stylesheet' href='style.css'/>
+    <meta charset="UTF-8">
+    <script src="script.js" type="text/javascript"></script>
+  </head>
+    <style>
+    /* écran plus petit: on passe le menu en horizontal */
+    @media (min-width: 50em) {
+    .nav { width: 100%; }
+    .nav li { display: inline-block; }
+    }
+    /* écran encore plus petit: on cache le menu */
+    @media (max-width: 50em) {
+    .nav { width:210px; }
+    .nav li { display: inline-block; }
+    }
+    </style>
+  <body>
+    <div class="nav" >
+      <ul>
+          <li><a href="#" onclick="ChangeColor()">changeColor</a></li>
+          <li><a href="#"onclick="RemoveFirstButton()">removeFirstButton</a></li>
+          <li><a href="#" onclick="UppercaseButtons()">uppercaseButtons</a></li>
+          <li><a href="#" onclick="LowercaseButtons()">lowercaseButtons</a></li>
+          <li><a href="#" onclick="HelloWorld()">helloWorld</a></li>
+          <li><a href="#" onclick="PlayASound()">playASound</a></li>
+          <li><a href="#" onmouseover="DisappearButtons()" onmouseout="AppearButtons()">disappearButtons</a></li>
+      </ul>
+    </div>
+       <h1 class='HelloWorld'></h1>
+      </div>
+  </body>
+</html>
