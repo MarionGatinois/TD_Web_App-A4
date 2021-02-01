@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel='stylesheet' href='style.css'/>
+    <meta charset="UTF-8">
+    <script src="script.js" type="text/javascript"></script>
+    <title>Animation</title>
+  </head>
+    <style>
+    /* écran grand */
+    @media (min-width: 50em) {
+    .nav { width: 100%; }
+    .nav li { display: inline-block; }
+    }
+    /* écran plus petit: on passe le menu en horizontal */
+    @media (max-width: 50em) {
+    .nav { width:220px; }
+    .nav li { display: inline-block; }
+    }
+    </style>
+  <body>
+    <h1>Animation  </h1>
+    <div class="nav" >
+      <ul>
+          <li><input type="color" id="bordercolor" name="bordercolor" value="#ffffff"><label for="bordercolor">bordercolor</label></li>
+          <li><input type="color" id="bgcolor" name="bgcolor" value="#ffffff"><label for="bgcolor">bgcolor</label></li>
+          <li><input type="color" id="bordercolorEnd" name="bordercolorEnd" value="#ffffff"><label for="bordercolorEnd">bordercolorEnd</label></li>
+          <li><input type="color" id="bgcolorEnd" name="bgcolorEnd" value="#ffffff"><label for="bgcolorEnd">bgcolorEnd</label></li>
+          <li><a href="#" onclick="start()">startAnimation</a></li>
+          <li><a href="#" onclick="start/stop_Zoom()">start/stop_Zoom</a></li>
+          <li><a href="#" onclick="start/stop_Mouvement()">start/stop_Mouvement</a></li>
+      </ul>
+    </div>
+       <h1 class='drawingBox'></h1>
+      </div>
+  </body>
+</html>
