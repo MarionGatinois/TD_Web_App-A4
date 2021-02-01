@@ -1,0 +1,48 @@
+.nav {
+  background-color: #333;
+  overflow: hidden;
+}
+.nav label, a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 10px;
+  margin-top: 1px;
+  margin-left: 1px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+h1 {
+  padding: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.menu{
+  padding: 20px 0 20px 10px;  /* Top  Right  Bottom  Left */
+  margin-top: 25px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.drawingBox {
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  border: 1px solid;
+  border-color: 'black';
+  margin: 20px auto;
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: ;
+    border-color:
+  }
+  100% {
+    bordercolorEnd;
+    bgcolorEnd;
+  }
+}
