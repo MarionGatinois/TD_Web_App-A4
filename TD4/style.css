@@ -33,16 +33,73 @@ h1 {
   border: 1px solid;
   border-color: 'black';
   margin: 20px auto;
-  animation: pulse 5s infinite;
 }
 
-@keyframes pulse {
-  0% {
-    background-color: ;
-    border-color:
-  }
-  100% {
-    bordercolorEnd;
-    bgcolorEnd;
-  }
+.animation{
+  animation: pulse 5s paused;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes zooming {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.2,1.2);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+.zooming {
+    animation: zooming 3s infinite ;
+}
+
+.marger{
+  margin: 20px, 20px
+}
+
+.moving {
+    animation: moving 5s infinite;
+}
+
+@keyframes moving {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(200px,0);
+    }
+
+    50% {
+        transform: translate(200px,200px);
+    }
+
+    75% {
+        transform: translate(0px,200px);
+    }
+
+    100% {
+        transform: translate(0px,0px);
+    }
+}
+
+
+.rotate {
+    animation: rotate 1s infinite ;
+}
+@keyframes rotate {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <link rel='stylesheet' href='style.css'/>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <script src="script.js" type="text/javascript"></script>
     <title>Animation</title>
-  </head>
+</head>
     <style>
     /* écran grand */
     @media (min-width: 50em) {
@@ -23,16 +22,19 @@
     <h1>Animation  </h1>
     <div class="nav" >
       <ul>
-          <li><input type="color" id="bordercolor" name="bordercolor" value="#ffffff"><label for="bordercolor">bordercolor</label></li>
-          <li><input type="color" id="bgcolor" name="bgcolor" value="#ffffff"><label for="bgcolor">bgcolor</label></li>
-          <li><input type="color" id="bordercolorEnd" name="bordercolorEnd" value="#ffffff"><label for="bordercolorEnd">bordercolorEnd</label></li>
-          <li><input type="color" id="bgcolorEnd" name="bgcolorEnd" value="#ffffff"><label for="bgcolorEnd">bgcolorEnd</label></li>
+          <li><input type="color" id="1" name="bordercolor" value="#ffffff"><label for="bordercolor">bordercolor</label></li>
+          <li><input type="color" id="2" name="bgcolor" value="#ffffff"><label for="bgcolor">bgcolor</label></li>
+          <li><input type="color" id="3" name="bordercolorEnd" value="#ffffff"><label for="bordercolorEnd">bordercolorEnd</label></li>
+          <li><input type="color" id="4" name="bgcolorEnd" value="#ffffff"><label for="bgcolorEnd">bgcolorEnd</label></li>
           <li><a href="#" onclick="start()">startAnimation</a></li>
-          <li><a href="#" onclick="start/stop_Zoom()">start/stop_Zoom</a></li>
-          <li><a href="#" onclick="start/stop_Mouvement()">start/stop_Mouvement</a></li>
+          <li><a href="#" onclick="start_stop_Zoom()">start/stop_Zoom</a></li>
+          <li><a href="#" onclick="start_stop_Mouvement()">start/stop_Mouvement</a></li>
+          <li><a href="#" onclick="rotate()">start/stop_Rotation_Mouvement</a></li>
       </ul>
+    </div >
+    <div class="drawingBox"  id="drawingBox">
+       <h1></h1>
     </div>
-       <h1 class='drawingBox'></h1>
-      </div>
   </body>
 </html>
+<script src="script.js" type="text/javascript"></script>
