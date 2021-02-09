@@ -32,11 +32,11 @@
   		</div>
   		<div class="row">
   			<label for="bgColor">Background color:</label>
-  			<input id="bgColor" name="bgColor" type="color" value="#000000">
+  			<input id="bgColor" name="bgColor" type="color" list="5color" value="#000000">
   		</div>
       <div class="row">
   			<label for="borderColor">Border color:</label>
-  			<input id="borderColor" name="borderColor" type="color" value="#000000">
+  			<input id="borderColor" name="borderColor" type="color" list="5color" value="#000000">
   		</div>
   		<div class="row">
   			<label for="thickness">Border thickness:</label>
@@ -72,6 +72,13 @@
   				<button id="randomdisplay" onclick="randomdisplay()">Display 10 random forms:</button>
   			</div>
   		</div>
+      <datalist id="5color">
+        <option value="#22223B"></option>
+        <option value="#4A4E68"></option>
+        <option value="#9A8C98"></option>
+        <option value="#C9ADA7"></option>
+        <option value="#F2E9E4"></option>
+      </datalist>
   	</div>
   	<canvas id="canvas"></canvas>
   </body>

@@ -1,3 +1,5 @@
+//display a form
+
 const displayfunction = () => {
 
   const form =	document.getElementById("form").value;
@@ -62,6 +64,9 @@ const displayfunction = () => {
   }
 }
 
+
+//display 10 forms
+
 const randomdisplay = () => {
   for (var i=0; i<10;i++)
     {
@@ -122,3 +127,17 @@ const randomdisplay = () => {
 
     }
 }
+
+//stockage
+const writeData =()=> {
+  localStorage.setItem('canvasObject', JSON.stringify(canvasObject));
+}
+
+
+const retrievedObject = () => {
+    const storage = localStorage.getItem('canvaObject');
+    const objects = JSON.parse(storage);
+    console.log(objects)
+}
+
+retrievedObject();
