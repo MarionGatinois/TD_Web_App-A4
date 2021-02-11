@@ -8,15 +8,21 @@ const displayfunction = () => {
   const thickness=	document.getElementById("thickness").value;
   const size=	document.getElementById("size").value;
 
+  figures.push({"form" : form, "bg_color": bg_color, "borderColor": borderColor, "size" : size, "thickness": thickness});
+  localStorage.setItem('canvasObjects', JSON.stringify(figures));
+
+
   // getting a reference to our HTML element
   const canvas = document.querySelector('canvas')
   // initiating 2D context on it
   const c = canvas.getContext('2d')
 
-  addEventListener('resize', () => {
-    canvas.width = innerWidth
-    canvas.height = innerHeight
-  })
+  //addEventListener('resize', () => {
+  //  canvas.width = innerWidth
+  //  canvas.height = innerHeight
+  //})
+  GetNonOverlappingStart(canvas.width, canvas.height)
+
 
   nb = (Math.floor((Math.random()*(canvas.width-size))));
   nb2 = (Math.floor((Math.random()*(canvas.height-size))));
@@ -62,7 +68,79 @@ const displayfunction = () => {
     c.stroke();
 
   }
+
+
 }
+
+
+const retrievedObject = () => {
+    var storage = localStorage.getItem('canvasObjects');
+    var elem = JSON.parse(storage);
+    for (i = 0; i < elem.length; i++)
+    {
+        const form = elem[i].form;
+        const bg_color = elem[i].bg_color;
+        const borderColor = elem[i].borderColor;
+        const thickness = elem[i].thickness;
+        const size = elem[i].size;
+
+        const canvas = document.querySelector('canvas')
+        const c = canvas.getContext('2d')
+
+        addEventListener('resize', () => {
+          canvas.width = innerWidth
+          canvas.height = innerHeight
+        })
+
+        nb = (Math.floor((Math.random()*(canvas.width-size))));
+        nb2 = (Math.floor((Math.random()*(canvas.height-size))));
+
+
+        if(form =='circle')
+        {
+
+          c.lineWidth =  thickness
+          c.beginPath()
+          c.fillStyle= bg_color
+          c.strokeStyle = borderColor
+          c.arc(nb,nb2, size/2, 0, Math.PI * 2)
+          c.fill();
+          c.stroke();
+
+        }
+        if(form =='square')
+        {
+          c.lineWidth =  thickness
+          c.beginPath()
+          c.fillStyle= bg_color
+          c.strokeStyle = borderColor
+          c.rect(nb, nb2, size, size)
+          c.fill();
+          c.stroke();
+
+
+        }
+        if(form =='triangle')
+        {
+          var size3 = parseInt(nb,10) + parseInt(size,10)
+          var size1 = parseInt(nb,10) + parseInt(size,10)/2
+          var size2 = parseInt(nb2,10) + parseInt(size,10)/2
+          c.lineWidth =  thickness
+          c.beginPath()
+          c.fillStyle= bg_color
+          c.strokeStyle = borderColor
+          c.moveTo(nb, nb2);
+          c.lineTo(size3, nb2);
+          c.lineTo(size1, size2);
+          c.closePath();
+          c.fill();
+          c.stroke();
+
+        }
+    }
+}
+
+
 
 
 //display 10 forms
@@ -128,16 +206,6 @@ const randomdisplay = () => {
     }
 }
 
-//stockage
-const writeData =()=> {
-  localStorage.setItem('canvasObject', JSON.stringify(canvasObject));
-}
 
-
-const retrievedObject = () => {
-    const storage = localStorage.getItem('canvaObject');
-    const objects = JSON.parse(storage);
-    console.log(objects)
-}
-
+var figures = [];
 retrievedObject();
