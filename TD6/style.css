@@ -1,0 +1,13 @@
+img{
+  width:150px;
+  float:right;
+}
+
+a{
+  text-decoration: none;
+  font-style: normal;
+}
+
+body{
+  font-family: "Arial", "arial", "cursive";
+}

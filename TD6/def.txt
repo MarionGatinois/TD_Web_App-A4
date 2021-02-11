@@ -1,0 +1,6 @@
+Heap
+Heap is the place (memory) where objects are stored when we define variables.
+Stack
+Stacks holds our function calls. On each new function call, it’s pushed on top of the stack. You can see your stack when you have an exception on JavaScript by stack trace.
+Callback Queue
+When a process finished its job, such as a xhr call, it’s dropped in a callback queue. Callback queue is triggered by event loop process after our stack is empty which means the process waits in that queue until our stack is empty. Once our stack has no function call, then a process is popped-out from callback queue and pushed in to stack.
