@@ -19,7 +19,7 @@ app.post('/info', jsonParser, function(req,res){
   const borderColor = body.borderColor;
   const thickness = body.thickness;
   const size = body.size;
-  res.send('INFO: Form :' + form +' / bg_color :'  + bg_color + ' / borderColor :' + borderColor + ' / thickness :' + thickness + ' / Size :' + size )
+  res.send('INFO: Form :' + form + ' / bg_color :'  + bg_color + ' / borderColor :' + borderColor + ' / thickness :' + thickness + ' / Size :' + size )
 });
 
 app.listen(3000, function(){

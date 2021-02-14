@@ -36,71 +36,116 @@ const displaySquare = (thickness, bg_color,borderColor, nb,nb2, size, c) => {
 }
 
 
-const displayfunction = () => {
-
-  const form =	document.getElementById("form").value;
-  const bg_color=	document.getElementById("bgColor").value;
-  const borderColor=	document.getElementById("borderColor").value;
-  const thickness=	document.getElementById("thickness").value;
-  const size=	document.getElementById("size").value;
-
-  const message = {
-  form: form,
-  bg_color: bg_color,
-  borderColor : borderColor,
-  thickness : thickness,
-  size : size
-};
-
-  // getting a reference to our HTML element
-  const canvas = document.querySelector('canvas')
-  // initiating 2D context on it
-  const c = canvas.getContext('2d')
-
-  addEventListener('resize', () => {
-    canvas.width = innerWidth
-    canvas.height = innerHeight
-  })
-
-
-  nb = (Math.floor((Math.random()*(canvas.width-size))));
-  nb2 = (Math.floor((Math.random()*(canvas.height-size))));
-
-  figures.push({"form" : form, "bg_color": bg_color, "borderColor": borderColor, "size" : size, "thickness": thickness, "nb":nb,"nb2":nb2});
-  localStorage.setItem('canvasObjects', JSON.stringify(figures));
-
-
-  if(form =='circle')
+const displayfunction = (form) => {
+  var j=0;
+  var count=0;
+  while(j<2)
   {
-    displayCircle(thickness, bg_color,borderColor, nb,nb2, size, c)
+    if (form==undefined)
+    {
+    var form =	document.getElementById("form").value;
+    }
+    const bg_color=	document.getElementById("bgColor").value;
+    const borderColor=	document.getElementById("borderColor").value;
+    const thickness=	document.getElementById("thickness").value;
+    const size=	document.getElementById("size").value;
 
-  }
-  if(form =='square')
-  {
-    displaySquare(thickness, bg_color,borderColor, nb,nb2, size, c)
-  }
-  if(form =='triangle')
-  {
-    displayTriangle(thickness, bg_color,borderColor, nb,nb2, size, c)
-  }
-
-  //affichage dans la console avec fetch
-  const fetchOptions = {
-    method: 'POST',
-    headers: {'Accept' : 'application/json', 'Content-Type' : 'application/json'},
-    body: JSON.stringify(message)
+    const message = {
+    form: form,
+    bg_color: bg_color,
+    borderColor : borderColor,
+    thickness : thickness,
+    size : size
   };
 
-  function onTextReady(text){
-    console.log(text);
-  };
+    // getting a reference to our HTML element
+    const canvas = document.querySelector('canvas')
+    // initiating 2D context on it
+    const c = canvas.getContext('2d')
 
-  function onResponse(res){
-    return res.text();
-  };
+    addEventListener('resize', () => {
+      canvas.width = innerWidth -60
+      canvas.height = innerHeight -60
+    })
 
-  fetch('/info', fetchOptions).then(onResponse).then(onTextReady);
 
+    nb = (Math.floor((Math.random()*(canvas.width-size))));
+    nb2 = (Math.floor((Math.random()*(canvas.height-size))));
+    position.push({"nb" : nb, "nb2": nb2});
+    var count = 0;
+
+
+    for (i = 0; i < position.length-1; i++)
+    {
+        var position1 = position[i].nb;
+        var position2 = position[i].nb2;
+        var sizeInt = parseInt(size,10) + parseInt(thickness,10);
+        var a = ((nb>(position1-(sizeInt))) && (nb<(position1+(sizeInt))));
+        var b = ((nb2>(position2-(sizeInt))) && (nb2<(position2+(sizeInt))));
+
+        if(b == true)
+        {
+          if(a == true)
+          {
+            count = count +1;
+          }
+        }
+    }
+
+    if(count == 0)
+    {
+      console.log('ok')
+      j=3
+    }
+    else{
+      form = 'erreur';
+      position.pop();
+      console.log('erreur position');
+      count = count+1;
+      console.log(count)
+      if(count==5)
+      {
+        j=3;
+      }
+
+    }
+
+    figures.push({"form" : form, "bg_color": bg_color, "borderColor": borderColor, "size" : size, "thickness": thickness, "nb":nb,"nb2":nb2});
+    localStorage.setItem('canvasObjects', JSON.stringify(figures));
+
+
+    if(form =='circle')
+    {
+      displayCircle(thickness, bg_color,borderColor, nb,nb2, size, c)
+
+    }
+    if(form =='square')
+    {
+      displaySquare(thickness, bg_color,borderColor, nb,nb2, size, c)
+    }
+    if(form =='triangle')
+    {
+      displayTriangle(thickness, bg_color,borderColor, nb,nb2, size, c)
+    }
+
+
+    //affichage dans la console avec fetch
+    const fetchOptions = {
+      method: 'POST',
+      headers: {'Accept' : 'application/json', 'Content-Type' : 'application/json'},
+      body: JSON.stringify(message)
+    };
+
+    function onTextReady(text){
+      console.log(text);
+    };
+
+    function onResponse(res){
+      return res.text();
+    };
+
+    fetch('/info', fetchOptions).then(onResponse).then(onTextReady);
+  }
 }
 
 
@@ -148,41 +193,27 @@ const retrievedObject = () => {
 
 const randomdisplay = () => {
   for (var i=0; i<10;i++)
-    {
-      const bg_color=	document.getElementById("bgColor").value;
-      const borderColor=	document.getElementById("borderColor").value;
-      const thickness=	document.getElementById("thickness").value;
-      const size=	document.getElementById("size").value;
-      const canvas = document.querySelector('canvas')
-      const c = canvas.getContext('2d')
-
-      addEventListener('resize', () => {
-        canvas.width = innerWidth
-        canvas.height = innerHeight
-      })
-
-      nb = (Math.floor((Math.random()*(canvas.width-size))));
-      nb2 = (Math.floor((Math.random()*(canvas.height-size))));
-      rd=(Math.floor((Math.random()*(3))));
-
+  {
+    rd=(Math.floor((Math.random()*(3))));
       if(rd==0) //circle
       {
-        displayCircle(thickness, bg_color,borderColor, nb,nb2, size, c)
+        displayfunction('circle');
       }
 
       if(rd==1) //square
       {
-        displaySquare(thickness, bg_color,borderColor, nb,nb2, size, c)
+        displayfunction('square');
       }
 
       if(rd==2) //triangle
       {
-        displayTriangle(thickness, bg_color,borderColor, nb,nb2, size, c)
+        displayfunction('triangle');
       }
-
     }
 }
 
 
 var figures = [];
+var position = [];
+position.push({"nb" : 150, "nb2": 150});
 retrievedObject();
