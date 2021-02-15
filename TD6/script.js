@@ -1,6 +1,18 @@
 const APIKEY ='JuGF95FUENVEXAtLIk9TT66lI4eijAUK';
 const url_image = 'https://www.nytimes.com/';
 
+function Search(){
+  input = document.getElementById('search').value;
+  if(input!='')
+  {
+  console.log(input)
+  text = document.getElementById("headlines").innerHTML;
+  stop=''
+  search = text.replaceAll(input,"<span style='background-color:greenyellow;'>$&</span>");
+  document.getElementById("headlines").innerHTML = search;
+  }
+}
+
 function displayResults(json)
 {
   //console.log(json)

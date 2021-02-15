@@ -12,3 +12,18 @@ a{
 body{
   font-family: "Arial", "arial", "cursive";
 }
+
+h1{
+  font-family: "Arial", "arial", "cursive";
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+    display: block;
+}
+
+input,label {
+    margin: .4rem 0;
+}
