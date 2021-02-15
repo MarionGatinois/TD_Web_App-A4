@@ -38,7 +38,7 @@ const displaySquare = (thickness, bg_color,borderColor, nb,nb2, size, c) => {
 
 const displayfunction = (form) => {
   var j=0;
-  var count=0;
+  var test=0;
   while(j<2)
   {
     if (form==undefined)
@@ -94,57 +94,55 @@ const displayfunction = (form) => {
 
     if(count == 0)
     {
-      console.log('ok')
       j=3
-    }
-    else{
-      form = 'erreur';
-      position.pop();
-      console.log('erreur position');
-      count = count+1;
-      console.log(count)
-      if(count==5)
+
+      figures.push({"form" : form, "bg_color": bg_color, "borderColor": borderColor, "size" : size, "thickness": thickness, "nb":nb,"nb2":nb2});
+      localStorage.setItem('canvasObjects', JSON.stringify(figures));
+
+
+      if(form =='circle')
       {
-        j=3;
+        displayCircle(thickness, bg_color,borderColor, nb,nb2, size, c)
+
+      }
+      if(form =='square')
+      {
+        displaySquare(thickness, bg_color,borderColor, nb,nb2, size, c)
+      }
+      if(form =='triangle')
+      {
+        displayTriangle(thickness, bg_color,borderColor, nb,nb2, size, c)
       }
 
+
+      //affichage dans la console avec fetch
+      const fetchOptions = {
+        method: 'POST',
+        headers: {'Accept' : 'application/json', 'Content-Type' : 'application/json'},
+        body: JSON.stringify(message)
+      };
+
+      function onTextReady(text){
+        console.log(text);
+      };
+
+      function onResponse(res){
+        return res.text();
+      };
+
+      fetch('/info', fetchOptions).then(onResponse).then(onTextReady);
     }
 
-    figures.push({"form" : form, "bg_color": bg_color, "borderColor": borderColor, "size" : size, "thickness": thickness, "nb":nb,"nb2":nb2});
-    localStorage.setItem('canvasObjects', JSON.stringify(figures));
-
-
-    if(form =='circle')
+    else
     {
-      displayCircle(thickness, bg_color,borderColor, nb,nb2, size, c)
-
+      position.pop();
+      test = test+1;
+      if(test==5)
+      {
+        console.log('Pas de place pour cette forme.. réessayez!')
+        j=3;
+      }
     }
-    if(form =='square')
-    {
-      displaySquare(thickness, bg_color,borderColor, nb,nb2, size, c)
-    }
-    if(form =='triangle')
-    {
-      displayTriangle(thickness, bg_color,borderColor, nb,nb2, size, c)
-    }
-
-
-    //affichage dans la console avec fetch
-    const fetchOptions = {
-      method: 'POST',
-      headers: {'Accept' : 'application/json', 'Content-Type' : 'application/json'},
-      body: JSON.stringify(message)
-    };
-
-    function onTextReady(text){
-      console.log(text);
-    };
-
-    function onResponse(res){
-      return res.text();
-    };
-
-    fetch('/info', fetchOptions).then(onResponse).then(onTextReady);
   }
 }
 
