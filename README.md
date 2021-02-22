@@ -1,6 +1,4 @@
-TD6 :
-
-Terminé, juste pas compris le 6.4
+TD6 Terminé
 
 
 TD3_Web_App
