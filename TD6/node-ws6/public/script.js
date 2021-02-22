@@ -208,8 +208,11 @@ const randomdisplay = () => {
     }
 }
 
+const load = () => {
+  retrievedObject();
+
+}
 
 var figures = [];
 var position = [];
 position.push({"nb" : 150, "nb2": 150});
-retrievedObject();

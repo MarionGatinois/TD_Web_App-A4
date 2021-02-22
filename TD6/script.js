@@ -3,14 +3,15 @@ const url_image = 'https://www.nytimes.com/';
 
 function Search(){
   input = document.getElementById('search').value;
+  document.body.style.background='white';
+  text = document.getElementById("headlines").innerHTML;
+
   if(input!='')
   {
-  console.log(input)
-  text = document.getElementById("headlines").innerHTML;
-  stop=''
-  search = text.replaceAll(input,"<span style='background-color:greenyellow;'>$&</span>");
+  search = text.replaceAll(input,"<span>$&</span>");
   document.getElementById("headlines").innerHTML = search;
   }
+
 }
 
 function displayResults(json)

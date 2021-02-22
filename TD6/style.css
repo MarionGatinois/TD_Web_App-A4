@@ -9,6 +9,7 @@ a{
   font-style: normal;
 }
 
+
 body{
   font-family: "Arial", "arial", "cursive";
 }
@@ -26,4 +27,8 @@ label {
 
 input,label {
     margin: .4rem 0;
+}
+
+span{
+  background-color: greenyellow;
 }
