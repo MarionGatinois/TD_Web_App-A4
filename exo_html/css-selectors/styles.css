@@ -1,0 +1,115 @@
+.synopsis {
+  color: #7E8184;        /* Light gray */
+  font-style: italic;
+}
+.button:link,                 /* Change this */
+.button:visited {             /* Change this */
+  display: block;             /* Add this */
+  text-decoration: none;      /* Add this */
+  color: #FFF;
+  background-color: #5995DA;    /* Blue */
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;    /* Dark gray */
+  border-radius: 5px;
+
+  width: 200px;
+  margin: 20px auto;
+}
+
+.page {
+  width: 600px;
+  margin: 0 auto;
+}
+
+/*order matters !!!*/
+
+
+.synopsis em {
+  font-style: normal;
+}
+
+h1 em {
+  color: #7E8184;
+}
+
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: aqua;
+  text-decoration: underline;
+}
+a:active {
+  color: red;
+}
+
+a:visited:hover {
+  color: orange;
+}
+
+a:visited:active {
+  color: red;
+}
+
+.button:hover,
+.button:visited:hover {
+  color: #FFF;
+  background-color: #76AEED;  /* Light blue */
+}
+
+.button:active,
+.button:visited:active {
+  color: #FFF;
+  background-color: #5995DA;  /* Blue */
+}
+
+.call-to-action:link,
+.call-to-action:visited {
+  font-style: italic;
+  background-color: #EEB75A;     /* Yellow */
+}
+
+.call-to-action:hover,
+.call-to-action:visited:hover {
+  background-color: #F5CF8E;     /* Light yellow */
+}
+
+.call-to-action:active,
+.call-to-action:visited:active {
+  background-color: #EEB75A;     /* Yellow */
+}
+
+p:last-of-type {
+  margin-bottom: 50px;
+}
+
+p:first-of-type {
+  color: #7E8184;
+  font-style: italic;
+}
+
+.sidebar > p:first-of-type {
+  color: #7E8184;
+  font-style: italic;
+}
+
+#button-2 {
+  background-color: #D55C5F;    /* Red */
+}
+
+.call-to-action:link,
+.call-to-action:visited {
+  background-color: #D55C5F;    /* Red */
+}
+/*
+:link – A link the user has never visited.
+:visited – A link the user has visited before.
+:hover – A link with the user’s mouse over it.
+:active – A link that’s being pressed down by a mouse (or finger).
+*/
