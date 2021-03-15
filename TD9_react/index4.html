@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class HelloWorld extends React.Component
+    {
+      render() {
+        return <h1>Hello {this.props.name} !</h1>;
+      }
+    }
+    function App(){
+      return(
+        <div>
+          <HelloWorld name='DIA1'/>
+          <HelloWorld name='DIA2'/>
+          <HelloWorld name='name'/>
+        </div>
+      )
+    }
+    const element = <HelloWorld name='DIA1' />;
+    ReactDOM.render(<App/>,document.getElementById('root') );
+   </script>
+  </body>
+</html>
